@@ -64,10 +64,12 @@ export default function TabLayout() {
           headerShown: false,
           tabBarStyle: {
             position: 'absolute',
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
+
+            borderTopLeftRadius: 32,
+            borderTopRightRadius: 32,
             borderTopWidth: 0,
             paddingTop: 8,
+            height: 72,
           },
           tabBarBackground: () => (
             <BlurView
@@ -75,8 +77,8 @@ export default function TabLayout() {
               style={{
                 ...StyleSheet.absoluteFillObject,
                 overflow: 'hidden',
-                borderTopLeftRadius: 20,
-                borderTopRightRadius: 20,
+                borderTopLeftRadius: 32,
+                borderTopRightRadius: 32,
               }}
             />
           ),
