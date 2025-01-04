@@ -7,6 +7,7 @@ import { generateTracksListId } from '@/helpers/miscellaneous'
 import { screenPadding } from '@/constants/Colors'
 import { useNavigationSearch } from '@/hooks/useNavigationSearch'
 import { trackTitleFilter } from '@/helpers/filter'
+import { useTracks } from '@/store/library'
 
 const SongsScreen = () => {
   const search = useNavigationSearch({
@@ -15,11 +16,13 @@ const SongsScreen = () => {
     },
   })
 
-  const filteredTracks = useMemo(() => {
-    if (!search) return library
+  const tracks = useTracks()
 
-    return library.filter(trackTitleFilter(search))
-  }, [search, library])
+  const filteredTracks = useMemo(() => {
+    if (!search) return tracks
+
+    return tracks.filter(trackTitleFilter(search))
+  }, [search, tracks])
 
   return (
     <View style={defaultStyles.container}>
